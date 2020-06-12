@@ -26,7 +26,7 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        @if(count($errors) >0 )
+                         @if(count($errors) >0 )
                             @foreach($errors->all() as $error)
                                 <div class="bar error">
                                         <span class="aico">&#9747;</span>
@@ -35,11 +35,14 @@
                                  </div>
                             @endforeach
                          @endif
-                        @if(Session::has('flash_message_success'))
-                             <div class="alert alert-success alert-block">
-                                 <button type="button" class="close" data-dismiss="alert">×</button> 
-                                    <strong> {!! session('flash_message_success') !!}</strong>
-                            </div>
+                         
+                       @if(Session::has('message'))
+    
+                            <div class="bar success">
+                                        <span class="aico">&#9747;</span>
+                                        <span class="close">X</span>
+                                                &#9747; {!! session('message') !!}
+                                 </div>
                          @endif
                         <h2 class="form-title">Sign up</h2>
                         <form method="post" class="register-form" id="register-form">@csrf

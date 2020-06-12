@@ -3,8 +3,6 @@
 <head>
     <title>Sign In form</title>
         <!--Style Assets--> 
-        <!-- <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
-        <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.min.css')}}" /> -->
         <link rel="stylesheet" type="text/css" href="{{ asset('fonts/material-icon/css/material-design-iconic-font.min.css') }}" >
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
         <link rel="stylesheet" type="text/css" href="{{ asset('css/error.css') }}" > 
@@ -15,7 +13,8 @@
         <script src="{{asset('js/backend_js/jquery.min.js')}}"></script>  
         <script src="{{asset('js/backend_js/matrix.login.js')}}"></script>
         <script src="{{asset('js/close.js')}}"></script>  
-        <!-- <script src="{{asset('js/backend_js/bootstrap.min.js')}}"></script>  -->
+        
+
 
 </head>
 
@@ -35,14 +34,19 @@
                     <div class="signin-form">
 
                          @if(Session::has('flash_message_error'))
-                             <!-- <div class="alert alert-danger alert-block">
-                                 <button type="button" class="close" data-dismiss="alert">×</button> 
-                                    <strong> {!! session('flash_message_error') !!}</strong>
-                            </div> -->
                             <div class="bar error">
                                         <span class="aico">&#9747;</span>
                                         <span class="close">X</span>
                                                 &#9747; {!! session('flash_message_error') !!}
+                                 </div>
+                         @endif
+
+                         @if(Session::has('message'))
+    
+                            <div class="bar success">
+                                        <span class="aico">&#9747;</span>
+                                        <span class="close">X</span>
+                                                &#9747; {!! session('message') !!}
                                  </div>
                          @endif
 
