@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+ 
+ // List courses
+Route::get('courses','CourseApiController@index');
+
+//List one course
+Route::get('course/{id}','CourseApiController@show');
+
+
+
+

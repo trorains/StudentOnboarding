@@ -16,7 +16,7 @@ class MasterController extends Controller
            $validator = Validator::make($request->all(), [ 
             'first_name' => ['required', 'string', 'max:40'],
             'sur_name' => ['required', 'string', 'max:40'],
-            'phone_number' => ['required', 'numeric', 'min:10','max:10'],
+            'phone_number' => ['required', 'numeric', 'min:10'],
             'email' =>'required|email|unique:users',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
