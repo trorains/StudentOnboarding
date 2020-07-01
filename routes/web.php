@@ -21,8 +21,8 @@ Route::get('/', function () {
 
 //User Routes
 
-Route::match(['get','post'],'/frontend/register','UserController@register');
-Route::match(['get','post'],'/frontend/login','UserController@login');
+// Route::match(['get','post'],'/frontend/register','UserController@register');
+// Route::match(['get','post'],'/frontend/login','UserController@login');
 
 // Administrator routes
 Route::match(['get','post'],'/admin','AdminController@login');

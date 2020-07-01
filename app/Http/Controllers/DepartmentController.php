@@ -4,24 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Department;
+use Illuminate\Support\Facades\Validator;
 
 class DepartmentController extends Controller
 {
     public  function addDepartment(Request $request){
     if($request->isMethod('post')){
-         $validator = Validator::make($request->all(), [ 
-            'department_name' => ['required|unique:departments', 'string', 'max:40'],
-            'description' => ['required', 'text', 'max:40'],
+        //  $validator = Validator::make($request->all(), [ 
+        //     'department_name' => ['required|unique:departments', 'string', 'max:40'],
+        //     'description' => ['required', 'text', 'max:40'],
             
-        ]);
-         if ($validator->fails()) {
-                 return redirect('admin/add-department')
-                ->withErrors($validator)
-                ->withInput($request->all());
+        // ]);
+        //  if ($validator->fails()) {
+        //          return redirect('admin/add-department')
+        //         ->withErrors($validator)
+        //         ->withInput($request->all());
 
-            }
-            {
-        else
+        //     }
+        //   else    {
+      
     	 $data = $request->all();
          $department = new Department;
          $department->departmentName = $data['department_name'];
@@ -29,7 +30,7 @@ class DepartmentController extends Controller
          $department->save();
          return redirect('/admin/view-departments')->with('flash_message_success','Department added successfully');
 
-            }
+            // }
     	}
    return view('admin.departments.add_department');
     
